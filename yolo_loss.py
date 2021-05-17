@@ -103,13 +103,7 @@ class YoloLoss(nn.Module):
         Returns:
         no_object_loss : scalar
 
-        Hints:
-        1) Create a 2 tensors no_object_prediction and no_object_target which only have the 
-        values which have no object. 
-        2) Have another tensor no_object_prediction_mask of the same size such that 
-        mask with respect to both confidences of bounding boxes set to 1. 
-        3) Create 2 tensors which are extracted from no_object_prediction and no_object_target using
-        the mask created above to find the loss. 
+        
         """
         
         ##### CODE #####
@@ -130,17 +124,7 @@ class YoloLoss(nn.Module):
         box_target_iou: (tensor)
         contains_object_response_mask : (tensor)
 
-        Hints:
-        1) Find the iou's of each of the 2 bounding boxes of each grid cell of each image.
-        2) Set the corresponding contains_object_response_mask of the bounding box with the max iou
-        of the 2 bounding boxes of each grid cell to 1.
-        3) For finding iou's use the compute_iou function
-        4) Before using compute preprocess the bounding box coordinates in such a way that 
-        if for a Box b the coordinates are represented by [x, y, w, h] then 
-        x, y = x/S - 0.5*w, y/S - 0.5*h ; w, h = x/S + 0.5*w, y/S + 0.5*h
-        Note: Over here initially x, y are the center of the box and w,h are width and height. 
-        We perform this transformation to convert the correct coordinates into bounding box coordinates.
-        5) Set the confidence of the box_target_iou of the bounding box to the maximum iou
+        
         
         """
         
